@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Fm_NovaVenda</class>
+ <widget class="QDialog" name="Fm_NovaVenda">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_7">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="rightMargin">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="lbl_qtde">
+           <property name="text">
+            <string>Quantidade:</string>
+           </property>
+           <property name="buddy">
+            <cstring>le_qtde</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="le_qtde">
+           <property name="styleSheet">
+            <string notr="true">height: 1.2em;
+border-radius: 5px;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="leftMargin">
+          <number>44</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="lbl_codProd">
+           <property name="text">
+            <string>Código do produto:</string>
+           </property>
+           <property name="buddy">
+            <cstring>le_codProd</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="le_codProd">
+           <property name="styleSheet">
+            <string notr="true">height: 1.2em;
+border-radius: 5px;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btt_pesquisar">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Pesquisar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="mainLayout">
+       <item>
+        <widget class="QTableWidget" name="tw_produtos">
+         <column>
+          <property name="text">
+           <string>Cod. Produto</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Produto</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Quantidade</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Valor Un.</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Valor Total</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0">
+         <item>
+          <widget class="QLabel" name="lbl_name">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">text-align: start;</string>
+           </property>
+           <property name="text">
+            <string>Nome: </string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::TextFormat::PlainText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lbl_desc">
+           <property name="styleSheet">
+            <string notr="true">text-align: start;</string>
+           </property>
+           <property name="text">
+            <string>Desc:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lbl_prodQtde">
+           <property name="styleSheet">
+            <string notr="true">text-align: start;</string>
+           </property>
+           <property name="text">
+            <string>Quantidade em estoque:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lbl_sellingValue">
+           <property name="styleSheet">
+            <string notr="true">text-align: start;</string>
+           </property>
+           <property name="text">
+            <string>Valor de venda: </string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btt_confirmAdding">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Confirmar adição</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="lbl_total">
+         <property name="text">
+          <string>Valor Total: R$...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QPushButton" name="btt_delete">
+           <property name="text">
+            <string>Excluir</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btt_edit">
+           <property name="text">
+            <string>Editar</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btt_sell">
+           <property name="text">
+            <string>Finalizar Venda</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>le_qtde</tabstop>
+  <tabstop>le_codProd</tabstop>
+  <tabstop>btt_delete</tabstop>
+  <tabstop>btt_pesquisar</tabstop>
+  <tabstop>btt_sell</tabstop>
+  <tabstop>btt_edit</tabstop>
+  <tabstop>tw_produtos</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
