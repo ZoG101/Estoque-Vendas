@@ -45,7 +45,7 @@ public:
             Fm_Principal->setObjectName("Fm_Principal");
         Fm_Principal->resize(800, 600);
         Fm_Principal->setMinimumSize(QSize(800, 600));
-        Fm_Principal->setMaximumSize(QSize(900, 700));
+        Fm_Principal->setMaximumSize(QSize(16777215, 16777215));
         actionEstoque = new QAction(Fm_Principal);
         actionEstoque->setObjectName("actionEstoque");
         actionColaboradores = new QAction(Fm_Principal);

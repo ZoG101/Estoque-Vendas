@@ -181,6 +181,7 @@ public:
         btt_confirmAdding = new QPushButton(Fm_NovaVenda);
         btt_confirmAdding->setObjectName("btt_confirmAdding");
         btt_confirmAdding->setStyleSheet(QString::fromUtf8(""));
+        btt_confirmAdding->setAutoDefault(false);
 
         verticalLayout->addWidget(btt_confirmAdding);
 
@@ -201,16 +202,19 @@ public:
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         btt_delete = new QPushButton(Fm_NovaVenda);
         btt_delete->setObjectName("btt_delete");
+        btt_delete->setAutoDefault(false);
 
         horizontalLayout_3->addWidget(btt_delete);
 
         btt_edit = new QPushButton(Fm_NovaVenda);
         btt_edit->setObjectName("btt_edit");
+        btt_edit->setAutoDefault(false);
 
         horizontalLayout_3->addWidget(btt_edit);
 
         btt_sell = new QPushButton(Fm_NovaVenda);
         btt_sell->setObjectName("btt_sell");
+        btt_sell->setAutoDefault(false);
 
         horizontalLayout_3->addWidget(btt_sell);
 

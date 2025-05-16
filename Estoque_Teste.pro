@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     connectionfactory.cpp \
     fm_colaboradores.cpp \
+    fm_colaboradores_dao.cpp \
     fm_estoque.cpp \
     fm_estoque_dao.cpp \
     fm_estoque_editing_page.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     accesstype.h \
     connectionfactory.h \
     fm_colaboradores.h \
+    fm_colaboradores_dao.h \
     fm_estoque.h \
     fm_estoque_dao.h \
     fm_estoque_editing_page.h \

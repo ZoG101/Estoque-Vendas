@@ -1,5 +1,6 @@
 debug/connectionfactory.o
 debug/fm_colaboradores.o
+debug/fm_colaboradores_dao.o
 debug/fm_estoque.o
 debug/fm_estoque_dao.o
 debug/fm_estoque_editing_page.o

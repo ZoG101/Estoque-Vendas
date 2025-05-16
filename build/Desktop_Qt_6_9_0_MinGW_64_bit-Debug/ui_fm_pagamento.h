@@ -34,7 +34,9 @@ public:
     {
         if (Fm_Pagamento->objectName().isEmpty())
             Fm_Pagamento->setObjectName("Fm_Pagamento");
-        Fm_Pagamento->resize(400, 300);
+        Fm_Pagamento->resize(402, 340);
+        Fm_Pagamento->setMinimumSize(QSize(400, 340));
+        Fm_Pagamento->setMaximumSize(QSize(530, 430));
         verticalLayout = new QVBoxLayout(Fm_Pagamento);
         verticalLayout->setObjectName("verticalLayout");
         cb_pagamento = new QComboBox(Fm_Pagamento);
@@ -55,6 +57,7 @@ public:
 
         btt_cancel = new QPushButton(Fm_Pagamento);
         btt_cancel->setObjectName("btt_cancel");
+        btt_cancel->setAutoDefault(false);
 
         horizontalLayout->addWidget(btt_cancel);
 

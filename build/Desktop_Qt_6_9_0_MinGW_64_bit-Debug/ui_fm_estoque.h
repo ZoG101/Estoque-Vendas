@@ -86,7 +86,7 @@ public:
             Fm_Estoque->setObjectName("Fm_Estoque");
         Fm_Estoque->resize(800, 520);
         Fm_Estoque->setMinimumSize(QSize(800, 520));
-        Fm_Estoque->setMaximumSize(QSize(1024, 600));
+        Fm_Estoque->setMaximumSize(QSize(16777215, 16777215));
         verticalLayout_10 = new QVBoxLayout(Fm_Estoque);
         verticalLayout_10->setObjectName("verticalLayout_10");
         tw_main = new QTabWidget(Fm_Estoque);
@@ -220,6 +220,7 @@ public:
 
         btt_clear = new QPushButton(tab_addProd);
         btt_clear->setObjectName("btt_clear");
+        btt_clear->setAutoDefault(false);
 
         horizontalLayout_2->addWidget(btt_clear);
 
@@ -276,6 +277,7 @@ public:
 
         btt_reload = new QPushButton(tab_manegeProd);
         btt_reload->setObjectName("btt_reload");
+        btt_reload->setAutoDefault(false);
 
         horizontalLayout_3->addWidget(btt_reload);
 
@@ -326,6 +328,16 @@ public:
 
         verticalLayout_10->addWidget(tw_main);
 
+#if QT_CONFIG(shortcut)
+        lbl_prodCod->setBuddy(le_prodCod);
+        lbl_prodName->setBuddy(le_prodName);
+        lbl_prodDesc->setBuddy(le_prodDesc);
+        lbl_prodQtt->setBuddy(le_prodQtt);
+        lbl_bValue->setBuddy(dsb_bValue);
+        lbl_sValue->setBuddy(dsb_sValue);
+        lbl_supplier->setBuddy(cb_supplier);
+        lbl_pesquisa->setBuddy(le_pesquisa);
+#endif // QT_CONFIG(shortcut)
 
         retranslateUi(Fm_Estoque);
 

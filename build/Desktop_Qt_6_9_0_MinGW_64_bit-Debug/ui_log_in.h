@@ -92,6 +92,7 @@ public:
 
         btt_cancelar = new QPushButton(log_in);
         btt_cancelar->setObjectName("btt_cancelar");
+        btt_cancelar->setAutoDefault(false);
 
         horizontalLayout_3->addWidget(btt_cancelar);
 
@@ -101,6 +102,10 @@ public:
 
         verticalLayout_2->addLayout(verticalLayout);
 
+#if QT_CONFIG(shortcut)
+        lbl_username->setBuddy(le_username);
+        lbl_senha->setBuddy(le_senha);
+#endif // QT_CONFIG(shortcut)
 
         retranslateUi(log_in);
 

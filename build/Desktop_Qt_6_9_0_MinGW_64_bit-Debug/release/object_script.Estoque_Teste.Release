@@ -1,5 +1,6 @@
 release/connectionfactory.o
 release/fm_colaboradores.o
+release/fm_colaboradores_dao.o
 release/fm_estoque.o
 release/fm_estoque_dao.o
 release/fm_estoque_editing_page.o

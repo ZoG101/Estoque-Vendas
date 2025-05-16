@@ -59,7 +59,8 @@ public:
     {
         if (Fm_estoque_editing_page->objectName().isEmpty())
             Fm_estoque_editing_page->setObjectName("Fm_estoque_editing_page");
-        Fm_estoque_editing_page->resize(536, 429);
+        Fm_estoque_editing_page->resize(536, 430);
+        Fm_estoque_editing_page->setMinimumSize(QSize(530, 430));
         verticalLayout_9 = new QVBoxLayout(Fm_estoque_editing_page);
         verticalLayout_9->setObjectName("verticalLayout_9");
         verticalLayout_8 = new QVBoxLayout();
@@ -187,6 +188,7 @@ public:
 
         btt_cancelar = new QPushButton(Fm_estoque_editing_page);
         btt_cancelar->setObjectName("btt_cancelar");
+        btt_cancelar->setAutoDefault(false);
 
         horizontalLayout_2->addWidget(btt_cancelar);
 
@@ -196,6 +198,15 @@ public:
 
         verticalLayout_9->addLayout(verticalLayout_8);
 
+#if QT_CONFIG(shortcut)
+        lbl_prodCod->setBuddy(le_prodCod);
+        lbl_prodName->setBuddy(le_prodName);
+        lbl_prodDesc->setBuddy(le_prodDesc);
+        lbl_prodQtt->setBuddy(le_prodQtt);
+        lbl_bValue->setBuddy(dsb_bValue);
+        lbl_sValue->setBuddy(dsb_sValue);
+        lbl_supplier->setBuddy(cb_supplier);
+#endif // QT_CONFIG(shortcut)
 
         retranslateUi(Fm_estoque_editing_page);
 
