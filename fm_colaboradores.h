@@ -22,12 +22,28 @@ private slots:
 
     void on_btt_userRegister_clicked();
 
+    void on_le_search_textChanged(const QString &arg1);
+
+    void on_btt_refresh_clicked();
+
+    void on_btt_del_clicked();
+
+    void on_btt_est_clicked();
+
 private:
     Ui::Fm_Colaboradores *ui;
 
     Fm_Colaboradores_DAO *DAO;
 
     bool verifyBlank();
+
+    void setTable();
+
+    void setRows(QVector<QStringList*>* data);
+
+    void setRow(QStringList* data);
+
+    void clearRows();
 };
 
 #endif // FM_COLABORADORES_H

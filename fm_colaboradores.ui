@@ -23,7 +23,7 @@
    <item>
     <widget class="QTabWidget" name="tw_main">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab1">
       <attribute name="title">
@@ -201,10 +201,38 @@
            <item>
             <widget class="QLineEdit" name="le_search"/>
            </item>
+           <item>
+            <widget class="QPushButton" name="btt_refresh">
+             <property name="text">
+              <string>Recarregar</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </item>
          <item>
-          <widget class="QTableWidget" name="tw_colabs"/>
+          <widget class="QTableWidget" name="tw_colabs">
+           <column>
+            <property name="text">
+             <string>ID</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Nome</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Telefone</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Acesso</string>
+            </property>
+           </column>
+          </widget>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_3">

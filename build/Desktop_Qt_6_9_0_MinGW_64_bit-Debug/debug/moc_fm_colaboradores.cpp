@@ -41,7 +41,12 @@ template <> constexpr inline auto Fm_Colaboradores::qt_create_metaobjectdata<qt_
         "Fm_Colaboradores",
         "on_btt_clearColab_clicked",
         "",
-        "on_btt_userRegister_clicked"
+        "on_btt_userRegister_clicked",
+        "on_le_search_textChanged",
+        "arg1",
+        "on_btt_refresh_clicked",
+        "on_btt_del_clicked",
+        "on_btt_est_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -49,6 +54,16 @@ template <> constexpr inline auto Fm_Colaboradores::qt_create_metaobjectdata<qt_
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_btt_userRegister_clicked'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_le_search_textChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(4, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 5 },
+        }}),
+        // Slot 'on_btt_refresh_clicked'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btt_del_clicked'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btt_est_clicked'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -74,10 +89,13 @@ void Fm_Colaboradores::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         switch (_id) {
         case 0: _t->on_btt_clearColab_clicked(); break;
         case 1: _t->on_btt_userRegister_clicked(); break;
+        case 2: _t->on_le_search_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 3: _t->on_btt_refresh_clicked(); break;
+        case 4: _t->on_btt_del_clicked(); break;
+        case 5: _t->on_btt_est_clicked(); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *Fm_Colaboradores::metaObject() const
@@ -99,14 +117,14 @@ int Fm_Colaboradores::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 6;
     }
     return _id;
 }

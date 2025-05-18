@@ -61,6 +61,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QLabel *lbl_search;
     QLineEdit *le_search;
+    QPushButton *btt_refresh;
     QTableWidget *tw_colabs;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *btt_edit;
@@ -213,10 +214,25 @@ public:
 
         horizontalLayout_4->addWidget(le_search);
 
+        btt_refresh = new QPushButton(tab_2);
+        btt_refresh->setObjectName("btt_refresh");
+
+        horizontalLayout_4->addWidget(btt_refresh);
+
 
         verticalLayout_9->addLayout(horizontalLayout_4);
 
         tw_colabs = new QTableWidget(tab_2);
+        if (tw_colabs->columnCount() < 4)
+            tw_colabs->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tw_colabs->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tw_colabs->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tw_colabs->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tw_colabs->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         tw_colabs->setObjectName("tw_colabs");
 
         verticalLayout_9->addWidget(tw_colabs);
@@ -262,7 +278,7 @@ public:
 
         retranslateUi(Fm_Colaboradores);
 
-        tw_main->setCurrentIndex(0);
+        tw_main->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Fm_Colaboradores);
@@ -284,6 +300,15 @@ public:
         btt_clearColab->setText(QCoreApplication::translate("Fm_Colaboradores", "Limpar", nullptr));
         tw_main->setTabText(tw_main->indexOf(tab1), QCoreApplication::translate("Fm_Colaboradores", "Adicionar Colaborador", nullptr));
         lbl_search->setText(QCoreApplication::translate("Fm_Colaboradores", "Pesquisar:", nullptr));
+        btt_refresh->setText(QCoreApplication::translate("Fm_Colaboradores", "Recarregar", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = tw_colabs->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("Fm_Colaboradores", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = tw_colabs->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("Fm_Colaboradores", "Nome", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = tw_colabs->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("Fm_Colaboradores", "Telefone", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tw_colabs->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("Fm_Colaboradores", "Acesso", nullptr));
         btt_edit->setText(QCoreApplication::translate("Fm_Colaboradores", "Editar", nullptr));
         btt_est->setText(QCoreApplication::translate("Fm_Colaboradores", "Estat\303\255sticas", nullptr));
         btt_del->setText(QCoreApplication::translate("Fm_Colaboradores", "Deletar", nullptr));

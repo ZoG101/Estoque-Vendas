@@ -23,7 +23,7 @@ public:
     {
         if (Fm_Vendas->objectName().isEmpty())
             Fm_Vendas->setObjectName("Fm_Vendas");
-        Fm_Vendas->resize(400, 300);
+        Fm_Vendas->resize(800, 600);
 
         retranslateUi(Fm_Vendas);
 

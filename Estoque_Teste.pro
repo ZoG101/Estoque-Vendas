@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,6 +20,7 @@ SOURCES += \
     fm_pagamento.cpp \
     fm_pagamento_dao.cpp \
     fm_vendas.cpp \
+    fm_vendas_dao.cpp \
     log_in.cpp \
     log_in_dao.cpp \
     main.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     fm_pagamento_dao.h \
     fm_principal.h \
     fm_vendas.h \
+    fm_vendas_dao.h \
     log_in.h \
     log_in_dao.h \
     user.h

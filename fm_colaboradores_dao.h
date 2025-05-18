@@ -10,6 +10,14 @@ public:
 
     int createUser(std::array<QString, 5>* data);
 
+    int deleteFunc(const QString& id);
+
+    QVector<QStringList*>* getAllFunc();
+
+    QVector<QStringList*>* searchFunc(const QString& arg1);
+
+    QStringList* getFunc(int *id);
+
 private:
     ConnectionFactory* con;
 };

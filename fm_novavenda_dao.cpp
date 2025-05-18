@@ -48,8 +48,8 @@ bool Fm_NovaVenda_DAO::newPurchase(QList<QTableWidgetItem*>* items, double* tota
     else if (!this->con->startTransaction()) return false;
 
     QSqlQuery *query = new QSqlQuery();
-    query->prepare("INSERT INTO tb_vendas (data_venda, hora_venda, id_colaborador, valor_total, id_tipo_pagamento) VALUES (:data, :hora, :colab, :total, :idPag);");
-    query->bindValue(":data", QDate::currentDate().toString("yyyy-MM-dd"));
+    query->prepare("INSERT INTO tb_vendas (data_venda, hora_venda, id_colaborador, valor_total, id_tipo_pagamento) VALUES (DATE('now'), :hora, :colab, :total, :idPag);");
+    //query->bindValue(":data", QDate::currentDate().toString("yyyy-MM-dd"));
     query->bindValue(":hora", QTime::currentTime().toString());
     query->bindValue(":colab", *id);
     query->bindValue(":total", *total);

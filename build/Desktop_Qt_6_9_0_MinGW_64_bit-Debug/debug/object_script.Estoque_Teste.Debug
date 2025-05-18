@@ -9,6 +9,7 @@ debug/fm_novavenda_dao.o
 debug/fm_pagamento.o
 debug/fm_pagamento_dao.o
 debug/fm_vendas.o
+debug/fm_vendas_dao.o
 debug/log_in.o
 debug/log_in_dao.o
 debug/main.o
