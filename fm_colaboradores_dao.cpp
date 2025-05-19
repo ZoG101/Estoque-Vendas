@@ -71,6 +71,38 @@ int Fm_Colaboradores_DAO::createUser(std::array<QString, 5>* data)
     }
 }
 
+int Fm_Colaboradores_DAO::updateUser(std::array<QString, 5>* data, QString* id)
+{
+    if (!this->con->openDB()) return -1;
+
+    QSqlQuery* query = new QSqlQuery();
+    query->prepare("UPDATE tb_colaborador "
+                   "SET nome = :nome, fone = :fone, username = :user, senha = :senha, acesso = :acesso "
+                   "WHERE id = :id;");
+    query->bindValue(":nome", data->at(0));
+    query->bindValue(":fone", data->at(1));
+    query->bindValue(":user", data->at(2));
+    query->bindValue(":senha", data->at(3));
+    query->bindValue(":acesso", data->at(4));
+    query->bindValue(":id", *id);
+
+    if (query->exec()) {
+        int id = query->lastInsertId().toInt();
+
+        this->con->closeDB();
+
+        delete query;
+
+        return id;
+    } else {
+        this->con->closeDB();
+
+        delete query;
+
+        return -2;
+    }
+}
+
 QStringList* Fm_Colaboradores_DAO::getFunc(int *id)
 {
     if (!this->con->openDB()) return nullptr;

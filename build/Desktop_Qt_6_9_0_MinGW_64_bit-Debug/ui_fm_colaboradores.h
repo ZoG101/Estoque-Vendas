@@ -278,7 +278,7 @@ public:
 
         retranslateUi(Fm_Colaboradores);
 
-        tw_main->setCurrentIndex(1);
+        tw_main->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Fm_Colaboradores);

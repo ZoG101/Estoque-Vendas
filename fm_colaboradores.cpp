@@ -1,6 +1,7 @@
 #include "fm_colaboradores.h"
 #include "ui_fm_colaboradores.h"
 #include "fm_vendas.h"
+#include "fm_colaboradores_editing.h"
 
 #include <QMessageBox>
 
@@ -148,6 +149,7 @@ void Fm_Colaboradores::on_btt_userRegister_clicked()
             return;
         } else if (func->empty()) {
             QMessageBox::critical(this, "Erro", "Não foi encontrado nenhum resultado de produtos<br/>Não foi possível montar tabla de produtos<br/>ERRO: -4");
+            delete func;
             return;
         }
 
@@ -233,5 +235,24 @@ void Fm_Colaboradores::on_btt_est_clicked()
     fmVendas->setModal(true);
     fmVendas->exec();
     delete fmVendas;
+}
+
+void Fm_Colaboradores::closeTab(QWidget* tab)
+{
+    this->ui->tw_main->removeTab(this->ui->tw_main->indexOf(tab));
+}
+
+void Fm_Colaboradores::on_btt_edit_clicked()
+{
+    if (this->ui->tw_colabs->selectedItems().empty()) {
+        QMessageBox::warning(this, "Sem Seleção", "Não há nenhuma linha selecionada!");
+        return;
+    }
+
+    this->ui->tw_main->addTab(new Fm_Colaboradores_Editing(this,
+                                                           new QString(this->ui->tw_colabs->item(this->ui->tw_colabs->currentRow(), 0)->text()),
+                                                           this->DAO,
+                                                           this),
+                              this->ui->tw_colabs->item(this->ui->tw_colabs->currentRow(), 1)->text());
 }
 

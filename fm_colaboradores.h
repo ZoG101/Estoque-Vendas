@@ -15,7 +15,10 @@ class Fm_Colaboradores : public QDialog
 
 public:
     explicit Fm_Colaboradores(QWidget *parent = nullptr);
+
     ~Fm_Colaboradores();
+
+    void closeTab(QWidget *tab);
 
 private slots:
     void on_btt_clearColab_clicked();
@@ -29,6 +32,8 @@ private slots:
     void on_btt_del_clicked();
 
     void on_btt_est_clicked();
+
+    void on_btt_edit_clicked();
 
 private:
     Ui::Fm_Colaboradores *ui;

@@ -10,6 +10,8 @@ public:
 
     int createUser(std::array<QString, 5>* data);
 
+    int updateUser(std::array<QString, 5>* data, QString* id);
+
     int deleteFunc(const QString& id);
 
     QVector<QStringList*>* getAllFunc();

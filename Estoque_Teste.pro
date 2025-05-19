@@ -12,6 +12,7 @@ SOURCES += \
     connectionfactory.cpp \
     fm_colaboradores.cpp \
     fm_colaboradores_dao.cpp \
+    fm_colaboradores_editing.cpp \
     fm_estoque.cpp \
     fm_estoque_dao.cpp \
     fm_estoque_editing_page.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     connectionfactory.h \
     fm_colaboradores.h \
     fm_colaboradores_dao.h \
+    fm_colaboradores_editing.h \
     fm_estoque.h \
     fm_estoque_dao.h \
     fm_estoque_editing_page.h \
@@ -48,6 +50,7 @@ HEADERS += \
 
 FORMS += \
     fm_colaboradores.ui \
+    fm_colaboradores_editing.ui \
     fm_estoque.ui \
     fm_estoque_editing_page.ui \
     fm_novavenda.ui \

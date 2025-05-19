@@ -327,7 +327,7 @@ void Fm_Estoque::fecharAba(QWidget* page, QStringList* item, int* id)
 
 void Fm_Estoque::fecharAba(QWidget* page)
 {
-     this->ui->tw_main->removeTab(this->ui->tw_main->indexOf(page));
+    this->ui->tw_main->removeTab(this->ui->tw_main->indexOf(page));
 }
 
 void Fm_Estoque::on_btt_editar_clicked()
