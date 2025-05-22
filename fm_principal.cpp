@@ -4,7 +4,7 @@
 #include "fm_novavenda.h"
 #include "fm_estoque.h"
 #include "fm_colaboradores.h"
-#include "fm_vendas.h"
+#include "fm_vendasgerais.h"
 
 Fm_Principal::Fm_Principal(QWidget *parent)
     : QMainWindow(parent)
@@ -169,7 +169,7 @@ void Fm_Principal::on_actionVendas_triggered()
     if (this->isBlock()) return;
     else if (!this->accesValidationTypeB()) return;
 
-    Fm_Vendas *vendasPage = new Fm_Vendas(this);
+    Fm_VendasGerais *vendasPage = new Fm_VendasGerais(this);
     vendasPage->setModal(true);
 
     this->hide();

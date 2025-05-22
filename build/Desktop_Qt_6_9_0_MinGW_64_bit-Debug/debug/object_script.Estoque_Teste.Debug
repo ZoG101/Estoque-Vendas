@@ -11,6 +11,8 @@ debug/fm_pagamento.o
 debug/fm_pagamento_dao.o
 debug/fm_vendas.o
 debug/fm_vendas_dao.o
+debug/fm_vendasgerais.o
+debug/fm_vendasgerais_dao.o
 debug/log_in.o
 debug/log_in_dao.o
 debug/main.o
@@ -26,4 +28,5 @@ debug/moc_fm_novavenda.o
 debug/moc_fm_pagamento.o
 debug/moc_fm_principal.o
 debug/moc_fm_vendas.o
+debug/moc_fm_vendasgerais.o
 debug/moc_log_in.o

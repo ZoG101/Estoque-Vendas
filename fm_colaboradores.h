@@ -2,6 +2,7 @@
 #define FM_COLABORADORES_H
 
 #include <QDialog>
+#include <map>
 
 #include "fm_colaboradores_dao.h"
 
@@ -18,7 +19,7 @@ public:
 
     ~Fm_Colaboradores();
 
-    void closeTab(QWidget *tab);
+    void closeTab(QWidget *tab, QString* id);
 
 private slots:
     void on_btt_clearColab_clicked();
@@ -39,6 +40,8 @@ private:
     Ui::Fm_Colaboradores *ui;
 
     Fm_Colaboradores_DAO *DAO;
+
+    std::map<QString, QWidget*>* editingMap;
 
     bool verifyBlank();
 

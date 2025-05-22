@@ -22,6 +22,8 @@ SOURCES += \
     fm_pagamento_dao.cpp \
     fm_vendas.cpp \
     fm_vendas_dao.cpp \
+    fm_vendasgerais.cpp \
+    fm_vendasgerais_dao.cpp \
     log_in.cpp \
     log_in_dao.cpp \
     main.cpp \
@@ -44,6 +46,8 @@ HEADERS += \
     fm_principal.h \
     fm_vendas.h \
     fm_vendas_dao.h \
+    fm_vendasgerais.h \
+    fm_vendasgerais_dao.h \
     log_in.h \
     log_in_dao.h \
     user.h
@@ -57,6 +61,7 @@ FORMS += \
     fm_pagamento.ui \
     fm_principal.ui \
     fm_vendas.ui \
+    fm_vendasgerais.ui \
     log_in.ui
 
 TRANSLATIONS += \

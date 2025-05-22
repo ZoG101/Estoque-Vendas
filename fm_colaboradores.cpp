@@ -12,6 +12,7 @@ Fm_Colaboradores::Fm_Colaboradores(QWidget *parent)
     ui->setupUi(this);
 
     this->DAO = new Fm_Colaboradores_DAO();
+    this->editingMap = new std::map<QString, QWidget*>();
 
     this->setTable();
 }
@@ -20,6 +21,13 @@ Fm_Colaboradores::~Fm_Colaboradores()
 {
     delete ui;
     delete DAO;
+
+    if (!this->editingMap->empty()) {
+        for (const auto& i : *this->editingMap)
+            delete i.second;
+    }
+
+    delete editingMap;
 }
 
 void Fm_Colaboradores::setRow(QStringList* data)
@@ -237,22 +245,32 @@ void Fm_Colaboradores::on_btt_est_clicked()
     delete fmVendas;
 }
 
-void Fm_Colaboradores::closeTab(QWidget* tab)
+void Fm_Colaboradores::closeTab(QWidget* tab, QString* id)
 {
+    this->editingMap->erase(*id);
     this->ui->tw_main->removeTab(this->ui->tw_main->indexOf(tab));
 }
 
 void Fm_Colaboradores::on_btt_edit_clicked()
-{
+{   
     if (this->ui->tw_colabs->selectedItems().empty()) {
         QMessageBox::warning(this, "Sem Seleção", "Não há nenhuma linha selecionada!");
         return;
     }
 
-    this->ui->tw_main->addTab(new Fm_Colaboradores_Editing(this,
-                                                           new QString(this->ui->tw_colabs->item(this->ui->tw_colabs->currentRow(), 0)->text()),
-                                                           this->DAO,
-                                                           this),
+    if (this->editingMap->find(this->ui->tw_colabs->item(this->ui->tw_colabs->currentRow(), 0)->text()) != this->editingMap->end()) {
+        this->ui->tw_main->setCurrentIndex(this->ui->tw_main->indexOf(this->editingMap->at(this->ui->tw_colabs->item(this->ui->tw_colabs->currentRow(), 0)->text())));
+        return;
+    }
+
+    Fm_Colaboradores_Editing* newPage = new Fm_Colaboradores_Editing(this,
+                                                                      new QString(this->ui->tw_colabs->item(this->ui->tw_colabs->currentRow(), 0)->text()),
+                                                                      this->DAO,
+                                                                      this);
+
+    this->editingMap->emplace(this->ui->tw_colabs->item(this->ui->tw_colabs->currentRow(), 0)->text(), newPage);
+
+    this->ui->tw_main->addTab(newPage,
                               this->ui->tw_colabs->item(this->ui->tw_colabs->currentRow(), 1)->text());
 }
 

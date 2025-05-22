@@ -154,7 +154,7 @@ void Fm_estoque_editing_page::on_btt_att_clicked()
 
 void Fm_estoque_editing_page::on_btt_cancelar_clicked()
 {
-    this->estoquePage->fecharAba(this);
+    this->estoquePage->fecharAba(this, new int(this->item->at(0).toInt()));
     this->close();
 }
 

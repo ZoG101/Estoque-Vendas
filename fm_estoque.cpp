@@ -10,6 +10,7 @@ Fm_Estoque::Fm_Estoque(QWidget *parent)
     ui->setupUi(this);
 
     this->estoqueDAO = new Fm_estoque_DAO();
+    this->editingPage = new std::map<int, QWidget*>();
 
     this->fornecedores = nullptr;
     this->setFornecedorCB();
@@ -44,6 +45,10 @@ Fm_Estoque::~Fm_Estoque()
         this->fornecedores->clear();
         delete fornecedores;
     }
+
+    for (const auto& i : *this->editingPage)
+        delete i.second;
+    delete editingPage;
 }
 
 void Fm_Estoque::setFornecedorCB()
@@ -318,6 +323,8 @@ void Fm_Estoque::fecharAba(QWidget* page, QStringList* item, int* id)
     this->produtos->erase(*id);
     this->produtos->emplace(item->at(0).toInt(), item);
 
+    this->editingPage->erase(*id);
+
     delete id;
 
     this->ui->tw_main->removeTab(this->ui->tw_main->indexOf(page));
@@ -325,9 +332,11 @@ void Fm_Estoque::fecharAba(QWidget* page, QStringList* item, int* id)
     this->on_btt_reload_clicked();
 }
 
-void Fm_Estoque::fecharAba(QWidget* page)
+void Fm_Estoque::fecharAba(QWidget* page, int* id)
 {
+    this->editingPage->erase(*id);
     this->ui->tw_main->removeTab(this->ui->tw_main->indexOf(page));
+    delete id;
 }
 
 void Fm_Estoque::on_btt_editar_clicked()
@@ -337,11 +346,20 @@ void Fm_Estoque::on_btt_editar_clicked()
         return;
     }
 
-    this->ui->tw_main->addTab(new Fm_estoque_editing_page(this,
-                                                          this->produtos->at(this->ui->tw_produtos->selectedItems().at(0)->text().toInt()),
-                                                          this->fornecedores,
-                                                          this,
-                                                          this->estoqueDAO),
+    if (this->editingPage->find(this->ui->tw_produtos->selectedItems().at(0)->text().toInt()) != this->editingPage->end()) {
+        this->ui->tw_main->setCurrentIndex(this->ui->tw_main->indexOf(this->editingPage->at(this->ui->tw_produtos->selectedItems().at(0)->text().toInt())));
+        return;
+    }
+
+    Fm_estoque_editing_page* newPage = new Fm_estoque_editing_page(this,
+                                                                   this->produtos->at(this->ui->tw_produtos->selectedItems().at(0)->text().toInt()),
+                                                                   this->fornecedores,
+                                                                   this,
+                                                                   this->estoqueDAO);
+
+    this->editingPage->emplace(this->ui->tw_produtos->selectedItems().at(0)->text().toInt(), newPage);
+
+    this->ui->tw_main->addTab(newPage,
                               this->ui->tw_produtos->selectedItems().at(1)->text());
 }
 

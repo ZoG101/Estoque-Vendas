@@ -24,7 +24,7 @@ public:
 
     void fecharAba(QWidget* page, QStringList* item, int* id);
 
-    void fecharAba(QWidget* page);
+    void fecharAba(QWidget* page, int* id);
 
 private slots:
     void on_btt_clear_clicked();
@@ -65,6 +65,8 @@ private:
     std::map<int, QStringList*>* produtos;
 
     std::map<int, QStringList*>* filterProdutos;
+
+    std::map<int, QWidget*>* editingPage;
 };
 
 #endif // FM_ESTOQUE_H

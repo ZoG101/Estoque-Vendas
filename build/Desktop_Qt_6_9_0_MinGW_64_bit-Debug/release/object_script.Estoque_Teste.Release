@@ -11,6 +11,8 @@ release/fm_pagamento.o
 release/fm_pagamento_dao.o
 release/fm_vendas.o
 release/fm_vendas_dao.o
+release/fm_vendasgerais.o
+release/fm_vendasgerais_dao.o
 release/log_in.o
 release/log_in_dao.o
 release/main.o
@@ -26,4 +28,5 @@ release/moc_fm_novavenda.o
 release/moc_fm_pagamento.o
 release/moc_fm_principal.o
 release/moc_fm_vendas.o
+release/moc_fm_vendasgerais.o
 release/moc_log_in.o

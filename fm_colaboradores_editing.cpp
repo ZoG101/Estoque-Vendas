@@ -51,7 +51,7 @@ bool Fm_Colaboradores_Editing::verifyBlank()
 
 void Fm_Colaboradores_Editing::on_btt_cancel_clicked()
 {
-    this->father->closeTab(this);
+    this->father->closeTab(this, this->editingId);
     this->close();
 }
 
@@ -106,7 +106,7 @@ void Fm_Colaboradores_Editing::on_btt_update_clicked()
         case 0:
             QMessageBox::information(this, "Sucesso!", "O usuário foi atualizado com sucesso!");
             delete data;
-            this->father->closeTab(this);
+            this->father->closeTab(this, this->editingId);
             this->close();
             break;
         default:
