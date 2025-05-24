@@ -2,6 +2,7 @@
 
 #include <QSqlError>
 #include <QSqlQuery>
+#include <QDate>
 
 Fm_VendasGerais_DAO::Fm_VendasGerais_DAO()
 {
@@ -29,7 +30,7 @@ QList<QStringList>* Fm_VendasGerais_DAO::getAllVendas()
         sellings = new QList<QStringList>();
 
         while (query->next()) sellings->emplace_back(QStringList({query->value(0).toString(),
-                                                query->value(1).toString(),
+                                                query->value(1).toDate().toString("dd/MM/yyyy"),
                                                 query->value(2).toString(),
                                                 query->value(3).toString(),
                                                 query->value(4).toString(),
@@ -109,7 +110,7 @@ QList<QStringList>* Fm_VendasGerais_DAO::getSellingPeriod(QString dateFrom, QStr
     if (query->exec()) {
         data = new QList<QStringList>();
         while (query->next()) data->emplace_back(QStringList({query->value(0).toString(),
-                                                query->value(1).toString(),
+                                                query->value(1).toDate().toString("dd/MM/yyyy"),
                                                 query->value(2).toString(),
                                                 query->value(3).toString(),
                                                 query->value(4).toString(),

@@ -5,9 +5,6 @@ ConnectionFactory::ConnectionFactory()
     this->db = QSqlDatabase::addDatabase("QSQLITE");
     this->db.setDatabaseName(qApp->applicationDirPath() + "/db/db.db");
 
-    if (this->db.open()) qDebug() << "certin!";
-    else qDebug() << "não certin!";
-
     this->db.close();
 }
 

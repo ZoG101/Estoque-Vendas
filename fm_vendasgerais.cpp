@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QPrinter>
 #include <QPainter>
+#include <QDate>
 #include <QDir>
 
 Fm_VendasGerais::Fm_VendasGerais(QWidget *parent)
@@ -159,8 +160,6 @@ void Fm_VendasGerais::on_btt_filter_clicked()
                 return;
             }
         }
-
-        qDebug() << this->ui->de_from->date().toString("yyyy-MM-dd");
         QList<QStringList>* data = this->DAO->getSellingPeriod(this->ui->de_from->date().toString("yyyy-MM-dd"), this->ui->de_to->date().toString("yyyy-MM-dd"));
 
         if (data == nullptr) {
@@ -215,16 +214,60 @@ void Fm_VendasGerais::on_btt_generatePDF_clicked()
         return;
     }
 
-    this->ui->tw_sellings->render(painter);
+    int* line = new int(40);
+    int* jump = new int(150);
 
-    printer->newPage();
+    QList<QTableWidgetItem*> sellings = this->ui->tw_sellings->selectedItems();
 
-    this->ui->tw_sellingItems->render(painter);
+    for (int i = 0; i < sellings.size(); i += 6) {
+        if ((((i / 6) + 1) % (sellings.size() / 6)) == 5) {
+            printer->newPage();
 
-    painter->end();
+            *line = 40;
+            *jump = 150;
+        }
+
+        painter->drawText(*jump, *line, "ID: " + sellings.at(i)->text());
+        painter->drawText(*jump * 2, *line, "DATA: " + sellings.at(i + 1)->text());
+
+        QList<QStringList*>* sellingsItems = this->DAO->getSellingProds(new int(sellings.at(i)->text().toInt()));
+
+        *line += 20;
+
+        double* total = new double(0);
+
+        painter->drawText(*jump, *line, "PRODUTO");
+        painter->drawText(*jump * 2, *line, "QUANTIDADE");
+        painter->drawText(*jump * 3, *line, "VALOR UN.");
+        painter->drawText(*jump * 4, *line, "VALOR TOTAL");
+
+        for (int j = 0; j < sellingsItems->size(); j++) {
+            painter->drawText(*jump, *line + 30, sellingsItems->at(j)->at(0));
+            painter->drawText(*jump * 2, *line + 30, sellingsItems->at(j)->at(1));
+            painter->drawText(*jump * 3, *line + 30, "R$" + sellingsItems->at(j)->at(2));
+            painter->drawText(*jump * 4, *line + 30, "R$" +  QString::number(sellingsItems->at(j)->at(2).toDouble() * sellingsItems->at(j)->at(1).toDouble()));
+
+            *total += sellingsItems->at(j)->at(2).toDouble() * sellingsItems->at(j)->at(1).toDouble();
+
+            *line += 20;
+        }
+
+        *line += 30;
+        painter->drawText(*jump, *line, "SUB TOTAL:");
+        painter->drawText(*jump * 4, *line, "R$" +  QString::number(*total));
+
+        foreach (const auto& i, *sellingsItems)
+            delete i;
+        delete sellingsItems;
+        delete total;
+
+        *line += *jump;
+    }
 
     QDesktopServices::openUrl(QUrl("file:///" + *path));
 
+    delete jump;
+    delete line;
     delete painter;
     delete printer;
     delete path;
