@@ -16,7 +16,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableWidget>
@@ -41,7 +40,7 @@ public:
     QPushButton *btt_filterUndo;
     QVBoxLayout *verticalLayout;
     QTableWidget *tw_sellings;
-    QListWidget *tw_sellItems;
+    QTableWidget *tw_sellingItems;
     QHBoxLayout *horizontalLayout_5;
     QPushButton *btt_generatePDF;
     QSpacerItem *horizontalSpacer;
@@ -109,14 +108,38 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName("verticalLayout");
         tw_sellings = new QTableWidget(Fm_VendasGerais);
+        if (tw_sellings->columnCount() < 6)
+            tw_sellings->setColumnCount(6);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tw_sellings->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tw_sellings->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tw_sellings->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tw_sellings->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tw_sellings->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tw_sellings->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tw_sellings->setObjectName("tw_sellings");
 
         verticalLayout->addWidget(tw_sellings);
 
-        tw_sellItems = new QListWidget(Fm_VendasGerais);
-        tw_sellItems->setObjectName("tw_sellItems");
+        tw_sellingItems = new QTableWidget(Fm_VendasGerais);
+        if (tw_sellingItems->columnCount() < 4)
+            tw_sellingItems->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        tw_sellingItems->setHorizontalHeaderItem(0, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        tw_sellingItems->setHorizontalHeaderItem(1, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tw_sellingItems->setHorizontalHeaderItem(2, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tw_sellingItems->setHorizontalHeaderItem(3, __qtablewidgetitem9);
+        tw_sellingItems->setObjectName("tw_sellingItems");
 
-        verticalLayout->addWidget(tw_sellItems);
+        verticalLayout->addWidget(tw_sellingItems);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName("horizontalLayout_5");
@@ -148,9 +171,29 @@ public:
     {
         Fm_VendasGerais->setWindowTitle(QCoreApplication::translate("Fm_VendasGerais", "Dialog", nullptr));
         lbl_from->setText(QCoreApplication::translate("Fm_VendasGerais", "De:", nullptr));
-        lbl_to->setText(QCoreApplication::translate("Fm_VendasGerais", "At\303\251", nullptr));
+        lbl_to->setText(QCoreApplication::translate("Fm_VendasGerais", "At\303\251:", nullptr));
         btt_filter->setText(QCoreApplication::translate("Fm_VendasGerais", "Filtrar", nullptr));
         btt_filterUndo->setText(QCoreApplication::translate("Fm_VendasGerais", "Sem Filtro", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = tw_sellings->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("Fm_VendasGerais", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = tw_sellings->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("Fm_VendasGerais", "DATA", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = tw_sellings->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("Fm_VendasGerais", "HORA", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tw_sellings->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("Fm_VendasGerais", "COLABORADOR", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = tw_sellings->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("Fm_VendasGerais", "VALOR TOTAL", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = tw_sellings->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("Fm_VendasGerais", "PAGAMENTO", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = tw_sellingItems->horizontalHeaderItem(0);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("Fm_VendasGerais", "PRODUTO", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = tw_sellingItems->horizontalHeaderItem(1);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("Fm_VendasGerais", "QUANTIDADE", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = tw_sellingItems->horizontalHeaderItem(2);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("Fm_VendasGerais", "VALOR UN.", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = tw_sellingItems->horizontalHeaderItem(3);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("Fm_VendasGerais", "VALOR TOTAL", nullptr));
         btt_generatePDF->setText(QCoreApplication::translate("Fm_VendasGerais", "Gerar PDF", nullptr));
     } // retranslateUi
 

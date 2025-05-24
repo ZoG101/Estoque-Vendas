@@ -45,7 +45,7 @@
            <item>
             <widget class="QLabel" name="lbl_to">
              <property name="text">
-              <string>Até</string>
+              <string>Até:</string>
              </property>
             </widget>
            </item>
@@ -75,10 +75,62 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QTableWidget" name="tw_sellings"/>
+        <widget class="QTableWidget" name="tw_sellings">
+         <column>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>DATA</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>HORA</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>COLABORADOR</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>VALOR TOTAL</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>PAGAMENTO</string>
+          </property>
+         </column>
+        </widget>
        </item>
        <item>
-        <widget class="QListWidget" name="tw_sellItems"/>
+        <widget class="QTableWidget" name="tw_sellingItems">
+         <column>
+          <property name="text">
+           <string>PRODUTO</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>QUANTIDADE</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>VALOR UN.</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>VALOR TOTAL</string>
+          </property>
+         </column>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
