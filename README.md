@@ -13,6 +13,16 @@
 ## Descrição
 
 Este é um programa simples de gerenciamento de estoque em C++ utilizando o framework QT. Ele possui dois tipos de usuários: administrador e vendedor. 
+Clique <a href="https://github.com/ZoG101/Estoque-Vendas/releases/tag/estoque_app">aqui</a> para ter acesso ao release ou clone ou baixe o repositório e acesse:
+
+```bash
+./Estoque_Teste/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/release
+ ````
+Para fazer modificações no projeto rocomendo a instalação do QT Creator e acessar o arquivo
+
+```bash
+Estoque_Teste.pro
+ ````
 
 ### O Administrador Possui:
 
